@@ -267,9 +267,10 @@ re-runs the full lint/typecheck/build/test gate and then publishes the distribut
 - **Single-file binaries** — built per OS (Node SEA does not cross-compile), smoke-tested, and
   attached to the Release as `entra-local-linux-x64`, `entra-local-windows-x64.exe`, and
   `entra-local-macos-arm64`.
-- **Docker image** — pushed to the GitHub Container Registry (part of GitHub Packages) at
-  `ghcr.io/cmaneu/entra-local` for both `linux/amd64` and `linux/arm64`, tagged with the release
-  version (and `latest` for a full, non-prerelease Release):
+- **Docker image** — built on matching AMD64 and ARM64 GitHub runners, then pushed to the GitHub
+  Container Registry (part of GitHub Packages) at `ghcr.io/cmaneu/entra-local` as one image for
+  both `linux/amd64` and `linux/arm64`, tagged with the release version (and `latest` for a full,
+  non-prerelease Release):
 
   ```bash
   docker run -p 8443:8443 -v entra-local-data:/app/data ghcr.io/cmaneu/entra-local:latest
